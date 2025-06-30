@@ -17,7 +17,6 @@ def find_extended(obj_exercises, base_exercise):
     extended_exercises = []
     i = 0
     lastIndex = -1
-    # print(f"obj_exercises: {base_exercise.baseName}")
     while i < len(obj_exercises):
         if obj_exercises[i].baseName == base_exercise.baseName and (lastIndex == -1 or i == lastIndex ):
             extended = ExtendedExercise(obj_exercises[i])
@@ -42,7 +41,7 @@ def create_group_exercise(obj_exercises):
     # Tạo GroupExercise
     group = GroupExercise(
         baseExercise=Exercise(base_exercise),
-        solutionExercise=solution,
+        solutionExercise=solution if solution else Solution(base_exercise),
         extendedExercises=extendedes
     )
     
@@ -58,6 +57,5 @@ def create_group_exercises(obj_exercises):
     while len(exercises_copy) > 0:
         group = create_group_exercise(exercises_copy)
         group_exercises.append(group)
-        break
     
     return group_exercises 

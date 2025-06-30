@@ -7,6 +7,7 @@ from utils import print_error, remove_empty_items
 class Solution:
     def __init__(self, obj_exercise: ObjExercise):
         self.solution_textes = []
+        self.title = obj_exercise.title
         lines = obj_exercise.content.split('\n')
         if(len(lines) < 2):
             print_error(f"No solution found for {obj_exercise.title}")
@@ -16,6 +17,11 @@ class Solution:
             self.solution_textes.append(lines[0])
             lines.pop(0)
         self.solution_textes = remove_empty_items(self.solution_textes)
+
+
+    def check_error(self):
+        if len(self.solution_textes) == 0:
+            print_error(f"[Solution]No solution textes found" + str(self.title))
 
     def __str__(self):
         return f"solution_textes: {self.solution_textes}"

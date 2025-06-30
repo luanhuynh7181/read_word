@@ -3,6 +3,8 @@ import os
 import re
 from models import ObjExercise, GroupExercise, Exercise, Solution, ExtendedExercise
 from group_creator import create_group_exercises
+from utils import print_info
+import json
 
 def extract_exercises_from_docx(filename):
     """
@@ -65,17 +67,12 @@ def extract_exercises_from_docx(filename):
         print(f"Lỗi khi đọc file: {str(e)}")
         return []
 
-def log_exercises(exercises):
-    """Log thông tin các ObjExercise"""
-    print(f"Đã tách được {len(exercises)} bài tập:")
-    for i, exercise in enumerate(exercises, 1):
-        print(f"\n========")
-        print(f"Name: {exercise.name}")
-        print(f"BaseName: {exercise.content}")
-        print(f"Title: {exercise.title}")
+def check_group_error(group_exercises):
+    print_info("Check error")
+    for group in group_exercises:
+        group.check_error()
+    print_info("Check error done")
 
 def log_group_exercises(group_exercises):
-    """Log thông tin các GroupExercise"""
-    print(f"Đã tạo được {len(group_exercises)} nhóm bài tập:")
     for i, group in enumerate(group_exercises, 1):
-      print(f"{group}")
+      group.log_info()
