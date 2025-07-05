@@ -10,32 +10,33 @@ class Exercise:
         self.title = obj_exercise.title
         self.input_section = []
         self.output_section = []
-        self.description_section = ""
+        self.description_section = []
         self.lines =  obj_exercise.content.split('\n')
         self._parse_description()
         self._parse_input()
-        self._parse_output()
+        self.description_section = remove_empty_items(self.description_section)
+        self.input_section = remove_empty_items(self.input_section)
+        self.output_section = remove_empty_items(self.lines)
     
     def _parse_description(self):
-        self.description_section = self.lines[0]
-        self.lines.pop(0)
-
-
+        # remove Ví dụ:
         pattern = re.search(r'Ví dụ\s*:?', self.lines[-1], re.IGNORECASE)
         if pattern:
             self.lines[-1] = self.lines[-1][:pattern.start()].strip()
 
-        self.output_section = remove_empty_items(self.lines)
-        # Kiểm tra dòng tiếp theo có phải là Input không
-        if re.search(r'input\s*:?', self.lines[0], re.IGNORECASE):
-            self.lines.pop(0)  # Bỏ dòng Input
-        else:
-            # Tìm pattern "input" trong description_section
-            input_pattern = re.search(r'input\s*:?', self.description_section, re.IGNORECASE)
-            if input_pattern:
-                # Bỏ phần từ "input" trở đi
-                self.description_section = self.description_section[:input_pattern.start()].strip()
+        while(len(self.lines) > 0 and not re.search(r'input\s*:?', self.lines[0], re.IGNORECASE)):
+            self.description_section.append(self.lines[0])
+            self.lines.pop(0)
+        
+        if(len(self.lines) == 0):
+            return
 
+        self.description_section.append(self.lines[0])
+        self.lines.pop(0)
+        
+        input_pattern = re.search(r'input\s*:?', self.description_section[-1], re.IGNORECASE)
+        if input_pattern:
+            self.description_section[-1] = self.description_section[-1][:input_pattern.start()].strip()
  
     def _parse_input(self):
         while(len(self.lines) > 0 and not re.search(r'output\s*:?', self.lines[0], re.IGNORECASE)):
@@ -44,23 +45,13 @@ class Exercise:
         
         if(len(self.lines) == 0):
             return
-        # Xem lines[0] có độ dài hơn 15 thì bỏ output đi và thêm vào input_section
-        if len(self.lines[0]) > 15:
-            str_output = self.lines[0]
-            pattern = re.search(r'output\s*:?', str_output, re.IGNORECASE)
-            if pattern:  # Kiểm tra pattern có tồn tại không
-                self.input_section.append(str_output[:pattern.start()].strip())
 
+        self.input_section.append(self.lines[0])
         self.lines.pop(0)
-        self.input_section = remove_empty_items(self.input_section)
 
-    def _parse_output(self):
-
-        if(len(self.lines) == 0):
-            return     
-        # Kiểm tra xem dòng cuối cùng có pattern "input" thì xóa input đi
-        lastline = self.lines[-1]
-
+        output_pattern = re.search(r'output\s*:?', self.input_section[-1], re.IGNORECASE)
+        if output_pattern:
+            self.input_section[-1] = self.input_section[-1][:output_pattern.start()].strip()
 
     def check_error(self):
         if len(self.description_section) == 0:

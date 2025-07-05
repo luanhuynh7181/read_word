@@ -17,6 +17,7 @@ def find_extended(obj_exercises, base_exercise):
     extended_exercises = []
     i = 0
     lastIndex = -1
+    # print(f"obj_exercises: {base_exercise.baseName}")
     while i < len(obj_exercises):
         if obj_exercises[i].baseName == base_exercise.baseName and (lastIndex == -1 or i == lastIndex ):
             extended = ExtendedExercise(obj_exercises[i])

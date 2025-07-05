@@ -4,7 +4,7 @@ from utils import print_info
 # Test với file "ĐỀ SỐ 05.docx"
 if __name__ == "__main__":
     print_info("Tạo nhóm bài tập")
-    filename = "files/sach.docx"
+    filename = "files/2_de.docx"
     exercises = extract_exercises_from_docx(filename)
     group_exercises = create_group_exercises(exercises)
     check_group_error(group_exercises)

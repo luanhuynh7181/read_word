@@ -22,7 +22,10 @@ def extract_exercises_from_docx(filename):
         full_text = []
         for paragraph in doc.paragraphs:
             if paragraph.text.strip():
-                full_text.append(paragraph.text.strip())
+                text = paragraph.text.strip()
+                if text.upper() in ["HƯỚNG DẪN VÀ CODE THAM KHẢO", "HẾT"]:
+                    continue
+                full_text.append(text)
         
         # Tách thành các ObjExercise
         exercises = []
@@ -41,8 +44,8 @@ def extract_exercises_from_docx(filename):
                 
                 # Tạo exercise mới
                 exercise_name = f"Bài {match.group(1)}"
-                # Xử lý title: bỏ pattern "Bài X:" và cắt khoảng trống thừa
-                clean_title = re.sub(r'^Bài\s*\d+(?:\.\d+)*\s*:\s*', '', line).strip()
+                # Xử lý title: bỏ pattern "Bài X:" hoặc "Bài X." và cắt khoảng trống thừa
+                clean_title = re.sub(r'^Bài\s*\d+(?:\.\d+)*\s*[:.]\s*', '', line).strip()
                 # Cắt hết khoảng trống thừa (nhiều khoảng trắng thành 1 khoảng trắng)
                 clean_title = re.sub(r'\s+', ' ', clean_title).strip()
                 current_exercise = ObjExercise(
