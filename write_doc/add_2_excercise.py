@@ -8,10 +8,10 @@ from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT, WD_TABLE_ALIGNMENT
 
 
-def write_exercise(doc: Document, baseExercise: List[Exercise]):# type: ignore
+def write_exercise(doc: Document, baseExercise: List[Exercise], group_solutions: List[object]):# type: ignore
     doc.add_paragraph()
-    for i, exercise in enumerate(baseExercise, 1):
-        header = doc.add_heading(f"Bài {i}: {exercise.title}", level=2)
+    for i, exercise in enumerate(baseExercise, 0):
+        header = doc.add_heading(f"Bài {i + 1}: {exercise.title}", level=2)
         
         add_style_paragraph(header, {
             'rgb_color': RGBColor(255, 0, 0),
@@ -56,5 +56,31 @@ def write_exercise(doc: Document, baseExercise: List[Exercise]):# type: ignore
         add_style_cell(table.cell(0, 0), 'Input', table_style)
         add_style_cell(table.cell(0, 1), 'Output', table_style)
         table.alignment = WD_TABLE_ALIGNMENT.CENTER
+
+        table_style = {
+            'alignment': WD_PARAGRAPH_ALIGNMENT.LEFT,
+            'vertical_alignment': WD_CELL_VERTICAL_ALIGNMENT.CENTER,
+            'font_size': 14
+        }
+        dataSolution = group_solutions[i]
+        
+        input_sample = dataSolution["input_sample"] # type: ignore
+        for j in range(len(input_sample)):
+            if(j == 0):
+                add_style_cell(table.cell(1, 0), input_sample[j], table_style)
+            else:
+                add_style_text(table.cell(1, 0), input_sample[j], table_style)
+        
+        table_style = {
+            'alignment': WD_PARAGRAPH_ALIGNMENT.LEFT,
+            'vertical_alignment': WD_CELL_VERTICAL_ALIGNMENT.TOP,
+            'font_size': 14
+        }
+        output_sample = dataSolution["output_sample"] # type: ignore
+        for j in range(len(output_sample)):
+            if(j == 0):
+                add_style_cell(table.cell(1, 1), output_sample[j], table_style)
+            else:
+                add_style_text(table.cell(1, 1), output_sample[j], table_style)
 
 

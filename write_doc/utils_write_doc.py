@@ -162,7 +162,7 @@ def add_style_cell(cell, text, style):
 
 def fix_column_widths(table, widths_in_inches):
     # Tắt tự động giãn
-    table.autofit = False
+    table.autofit = True
     for row in table.rows:
         for i, width in enumerate(widths_in_inches):
             cell = row.cells[i]

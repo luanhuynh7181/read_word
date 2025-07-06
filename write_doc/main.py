@@ -6,7 +6,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from docx.shared import Pt, RGBColor
 from file_reader import extract_exercises_from_docx, check_group_error, log_group_exercises
 from group_creator import create_group_exercises
-from utils import print_info
+from utils import print_error, print_info
 from models.exercise.group_exercise import GroupExercise
 from models.exercise.exercise import Exercise
 from models.exercise.solution import Solution
@@ -21,24 +21,35 @@ from write_doc.add_4_extendExcercise import write_extend_exercise
 from write_doc.add_3_solution import write_solution_exercise
 from write_doc.utils_write_doc import create_table, write_list_section
 from docx2pdf import convert
-
+import json
 docFile = "output.docx"
 doc = Document()
 
 def write_doc(groupExercises: List[GroupExercise]):
     # split by 3 exercises
     count = 0
+    solutions = []
+    with open("../gen_testcase_sample/data.json", "r", encoding="utf-8") as f:
+        solutions = json.load(f)
+
     for i in range(0, len(groupExercises), 4):
         count += 1
-        write_group_exercise(groupExercises[i:i+4], count)
+        
+        write_group_exercise(groupExercises[i:i+4], count, solutions)
+        print(f"Đã xử lý {count}/30 nhóm")
     doc.save(docFile)
         
-def write_group_exercise(groupExercise: List[GroupExercise], count: int):
-   
-    # setup_document_styles()
+def write_group_exercise(groupExercise: List[GroupExercise], count: int, solutions: List[object]):
+    group_solutions = []
+    for group in groupExercise:
+        dataSolution = next((item for item in solutions if item["id"] == group.baseExercise.title), None)  # type: ignore
+        if dataSolution is None:
+            print_error(f"Không tìm thấy solution cho {group.baseExercise.title}")
+            continue
+        group_solutions.append(dataSolution)
     add_1_header(doc, [group.baseExercise for group in groupExercise], count)
-    write_exercise(doc, [group.baseExercise for group in groupExercise])
-    write_solution_exercise(doc, [group.solutionExercise for group in groupExercise])
+    write_exercise(doc, [group.baseExercise for group in groupExercise], group_solutions)
+    write_solution_exercise(doc, [group.solutionExercise for group in groupExercise], group_solutions)
     write_extend_exercise(doc, [group.extendedExercises for group in groupExercise])
     pass
 
@@ -60,11 +71,8 @@ def write_extended_exercises(extendedExercises: List[List[ExtendedExercise]]):
 
 
 if __name__ == "__main__":
-    print_info("Tạo nhóm bài tập")
-    filename = "../files/2_de.docx"
-    exercises = extract_exercises_from_docx(filename)
+    print_info("running...")
+    exercises = extract_exercises_from_docx( "../files/2_de.docx")
     group_exercises = create_group_exercises(exercises)
-    # check_group_error(group_exercises)
-    # log_group_exercises(group_exercises)
     write_doc(group_exercises)
     # convert("output.docx", "output.pdf")
