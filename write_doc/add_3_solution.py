@@ -6,7 +6,9 @@ from write_doc.utils_write_doc import create_table, add_style_paragraph, write_l
 from docx.shared import RGBColor
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT
-
+from pygments import lex
+from pygments.lexers import PythonLexer
+from pygments.token import Token
 
 def write_solution_exercise(doc: Document, solutionExercise: List[Solution], group_solutions: List[object]): # type: ignore
     header = doc.add_heading(f"Hướng dẫn giải", level=2)
@@ -19,7 +21,7 @@ def write_solution_exercise(doc: Document, solutionExercise: List[Solution], gro
         })
 
     for i, exercise in enumerate(solutionExercise, 0):
-        header = doc.add_heading(f"Bài {i}: {exercise.title}", level=3)
+        header = doc.add_heading(f"Bài {i+1}: {exercise.title}", level=3)
         add_style_paragraph(header, {
             'rgb_color': RGBColor(0, 111, 192),
             'alignment': WD_PARAGRAPH_ALIGNMENT.LEFT,
@@ -50,14 +52,33 @@ def write_solution_exercise(doc: Document, solutionExercise: List[Solution], gro
 
 def create_code_table(doc: Document, code: List[str]): # type: ignore
     table = create_table(doc, 1, 1)
-    table_style = {
-        'alignment': WD_PARAGRAPH_ALIGNMENT.LEFT,
-        'vertical_alignment': WD_CELL_VERTICAL_ALIGNMENT.TOP,
-        'font_size': 14
+    write_code_table(code, table.cell(0, 0))
+
+def write_code_table(code_lines: List[str], cell):
+    paragraph = cell.paragraphs[0]
+    code = "\n".join(code_lines)
+
+    color_map = {
+        Token.Keyword: RGBColor(0, 0, 255),               # Blue - for, def, import
+        Token.Name.Function: RGBColor(0, 128, 0),         # Dark Green
+        Token.Name.Class: RGBColor(0, 102, 102),          # Teal
+        Token.Name.Builtin: RGBColor(102, 0, 153),        # Purple - print, len
+        Token.Literal.String: RGBColor(196, 26, 22),      # Red - strings
+        Token.Literal.Number: RGBColor(255, 85, 0),       # Orange
+        Token.Comment: RGBColor(0, 128, 0),               # Green - comments
+        Token.Operator: RGBColor(0, 102, 204),            # Blue-ish
+        Token.Punctuation: RGBColor(128, 128, 128),       # Gray
+        Token.Name: RGBColor(0, 102, 102),                # Teal (variables)
+        Token.Text: RGBColor(80, 80, 80),                 # Dark Gray (space/newline)
     }
-    for i in range(len(code)):
-        if(i == 0):
-            add_style_cell(table.cell(0, 0), code[i], table_style)
-        else:
-            add_style_text(table.cell(0, 0), code[i], table_style)
-    return table
+
+    tokens = list(lex(code, PythonLexer()))
+
+    if tokens and tokens[-1][1] == '\n':
+        tokens.pop()
+
+    for token_type, token_value in tokens:
+        run = paragraph.add_run(token_value)
+        rgb = color_map.get(token_type, RGBColor(150, 75, 0))  # fallback màu đẹp
+        run.font.color.rgb = rgb
+        run.font.name = "Consolas"

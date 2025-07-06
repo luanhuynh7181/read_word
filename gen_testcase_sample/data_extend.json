@@ -1,0 +1,1524 @@
+[
+  {
+    "code_sample": [
+      "def is_fib(x):",
+      "    a, b = 0, 1",
+      "    while b < x:",
+      "        a, b = b, a + b",
+      "    return b == x or x == 0",
+      "",
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "min_fib = -1",
+      "for num in arr:",
+      "    if is_fib(num):",
+      "        if min_fib == -1 or num < min_fib:",
+      "            min_fib = num",
+      "print(min_fib)"
+    ],
+    "id": "Tìm số Fibonacci nhỏ nhất Input:",
+    "input_sample": [
+      "5",
+      "4 6 7 13 8"
+    ],
+    "output_sample": [
+      "4"
+    ],
+    "point": "160",
+    "short_name": "MINFIB"
+  },
+  {
+    "code_sample": [
+      "def is_fib(x):",
+      "    a, b = 0, 1",
+      "    while b < x:",
+      "        a, b = b, a + b",
+      "    return b == x or x == 0",
+      "",
+      "n = int(input())",
+      "if is_fib(n):",
+      "    print(\"YES\")",
+      "else:",
+      "    print(\"NO\")"
+    ],
+    "id": "Kiểm tra số là Fibonacci hay không",
+    "input_sample": [
+      "21"
+    ],
+    "output_sample": [
+      "YES"
+    ],
+    "point": "80",
+    "short_name": "ISFIB"
+  },
+  {
+    "code_sample": [
+      "def is_fib(x):",
+      "    a, b = 0, 1",
+      "    while b < x:",
+      "        a, b = b, a + b",
+      "    return b == x or x == 0",
+      "",
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "count = 0",
+      "for num in arr:",
+      "    if is_fib(num):",
+      "        count += 1",
+      "print(count)"
+    ],
+    "id": "Đếm số Fibonacci trong dãy",
+    "input_sample": [
+      "5",
+      "4 6 7 13 8"
+    ],
+    "output_sample": [
+      "3"
+    ],
+    "point": "160",
+    "short_name": "COUNTFIB"
+  },
+  {
+    "code_sample": [
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "max1 = 0",
+      "max2 = 0",
+      "for num in arr:",
+      "    if num > max1:",
+      "        max2 = max1",
+      "        max1 = num",
+      "    elif num > max2 and num != max1:",
+      "        max2 = num",
+      "print(max1 + max2)"
+    ],
+    "id": "Tìm phép cộng lớn nhất của hai số",
+    "input_sample": [
+      "5",
+      "1 2 3 4 5"
+    ],
+    "output_sample": [
+      "9"
+    ],
+    "point": "130",
+    "short_name": "MAXSUM"
+  },
+  {
+    "code_sample": [
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "max_num = arr[0]",
+      "min_num = arr[0]",
+      "for num in arr:",
+      "    if num > max_num:",
+      "        max_num = num",
+      "    if num < min_num:",
+      "        min_num = num",
+      "print(max_num - min_num)"
+    ],
+    "id": "Tìm hiệu lớn nhất của hai số",
+    "input_sample": [
+      "5",
+      "2 9 5 1 7"
+    ],
+    "output_sample": [
+      "8"
+    ],
+    "point": "130",
+    "short_name": "MAXDIFF"
+  },
+  {
+    "code_sample": [
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "arr = list(set(arr))",
+      "if len(arr) < 3:",
+      "    print(-1)",
+      "else:",
+      "    arr.sort(reverse=True)",
+      "    print(arr[0] * arr[1] * arr[2])"
+    ],
+    "id": "Tìm số lớn nhất bằng tích của ba số",
+    "input_sample": [
+      "5",
+      "1 2 3 4 5"
+    ],
+    "output_sample": [
+      "60"
+    ],
+    "point": "170",
+    "short_name": "MAXPROD3"
+  },
+  {
+    "code_sample": [
+      "s = input()",
+      "count = {}",
+      "for c in s:",
+      "    count[c] = count.get(c, 0) + 1",
+      "",
+      "res = 'No unique character'",
+      "for c in s:",
+      "    if count[c] == 1:",
+      "        res = c",
+      "        break",
+      "print(res)"
+    ],
+    "id": "Tìm ký tự không lặp đầu tiên",
+    "input_sample": [
+      "swiss"
+    ],
+    "output_sample": [
+      "w"
+    ],
+    "point": "160",
+    "short_name": "FIRSTUNIQ"
+  },
+  {
+    "code_sample": [
+      "def is_fib(x):",
+      "    a, b = 0, 1",
+      "    while b < x:",
+      "        a, b = b, a + b",
+      "    return b == x or x == 0",
+      "",
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "min_fib = -1",
+      "for num in arr:",
+      "    if is_fib(num):",
+      "        if min_fib == -1 or num < min_fib:",
+      "            min_fib = num",
+      "print(min_fib)"
+    ],
+    "id": "Tìm số Fibonacci nhỏ nhất",
+    "input_sample": [
+      "5",
+      "4 6 7 13 8"
+    ],
+    "output_sample": [
+      "4"
+    ],
+    "point": "160",
+    "short_name": "MINFIB"
+  },
+  {
+    "code_sample": [
+      "s = input()",
+      "char = input()",
+      "count = s.count(char)",
+      "print(count)"
+    ],
+    "id": "Đếm số lần lặp lại của một ký tự cho trước",
+    "input_sample": [
+      "hello world",
+      "o"
+    ],
+    "output_sample": [
+      "2"
+    ],
+    "point": "90",
+    "short_name": "COUNTCHAR"
+  },
+  {
+    "code_sample": [
+      "def is_prime(n):",
+      "    if n < 2:",
+      "        return False",
+      "    for i in range(2, int(n ** 0.5) + 1):",
+      "        if n % i == 0:",
+      "            return False",
+      "    return True",
+      "s = input()",
+      "prime_sum = 0",
+      "lower_count = 0",
+      "for char in s:",
+      "    if char.isdigit() and is_prime(int(char)):",
+      "        prime_sum += int(char)",
+      "    elif char.islower():",
+      "        lower_count += 1",
+      "print(prime_sum, lower_count)"
+    ],
+    "id": "Tìm tổng các số nguyên tố và số ký tự thường",
+    "input_sample": [
+      "abc123!@#"
+    ],
+    "output_sample": [
+      "5 3"
+    ],
+    "point": "60",
+    "short_name": "SUMPRIMEANDLOWER"
+  },
+  {
+    "code_sample": [
+      "import math",
+      "def is_prime(n):",
+      "    if n < 2:",
+      "        return False",
+      "    for i in range(2, int(math.sqrt(n)) + 1):",
+      "        if n % i == 0:",
+      "            return False",
+      "    return True",
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "max_prime = -1",
+      "for num in arr:",
+      "    if is_prime(num) and num > max_prime:",
+      "        max_prime = num",
+      "if max_prime == -1:",
+      "    print(-1)",
+      "else:",
+      "    print(max_prime)"
+    ],
+    "id": "Tìm số nguyên tố lớn nhất trong dãy",
+    "input_sample": [
+      "6",
+      "2 4 5 7 9 7"
+    ],
+    "output_sample": [
+      "7"
+    ],
+    "point": "60",
+    "short_name": "MAXPRIMESEQ"
+  },
+  {
+    "code_sample": [
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "min_sum = float('inf')",
+      "current_sum = 0",
+      "for num in arr:",
+      "    current_sum += num",
+      "    if current_sum < min_sum:",
+      "        min_sum = current_sum",
+      "    if current_sum > 0:",
+      "        current_sum = 0",
+      "print(min_sum)"
+    ],
+    "id": "Tìm dãy con liên tiếp có tổng nhỏ nhất",
+    "input_sample": [
+      "5",
+      "1 2 -3 4 -2 5"
+    ],
+    "output_sample": [
+      -3
+    ],
+    "point": "60",
+    "short_name": "MINSUMSEQ"
+  },
+  {
+    "code_sample": [
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "max_sum = 0",
+      "current_sum = 0",
+      "for num in arr:",
+      "    if num > 0:",
+      "        current_sum += num",
+      "    else:",
+      "        if current_sum > max_sum:",
+      "            max_sum = current_sum",
+      "        current_sum = 0",
+      "if current_sum > max_sum:",
+      "    max_sum = current_sum",
+      "print(max_sum)"
+    ],
+    "id": "Tìm dãy con có tổng lớn nhất không chứa số âm",
+    "input_sample": [
+      "6",
+      "1 2 -3 4 -2 5"
+    ],
+    "output_sample": [
+      7
+    ],
+    "point": "60",
+    "short_name": "MAXPOSSEQ"
+  },
+  {
+    "code_sample": [
+      "n, k = map(int, input().split())",
+      "arr = list(map(int, input().split()))",
+      "max_sum = -float('inf')",
+      "for i in range(n - k + 1):",
+      "    current_sum = sum(arr[i:i+k])",
+      "    for j in range(i+k, n):",
+      "        current_sum += arr[j]",
+      "        if current_sum > max_sum:",
+      "            max_sum = current_sum",
+      "print(max_sum)"
+    ],
+    "id": "Tìm dãy con có tổng lớn nhất với độ dài tối thiểu k",
+    "input_sample": [
+      "6 3",
+      "1 2 -3 4 -2 5"
+    ],
+    "output_sample": [
+      8
+    ],
+    "point": "60",
+    "short_name": "MAXSUMK"
+  },
+  {
+    "code_sample": [
+      "s = input()",
+      "count = 0",
+      "for char in s:",
+      "    if char != ' ':",
+      "        count += 1",
+      "print(count)"
+    ],
+    "id": "Đếm số lượng ký tự không phải khoảng trắng trong xâu",
+    "input_sample": [
+      "Hello World!"
+    ],
+    "output_sample": [
+      "10"
+    ],
+    "point": "30",
+    "short_name": "COUNTNONSPACE"
+  },
+  {
+    "code_sample": [
+      "s = input()",
+      "word = input()",
+      "count = s.split().count(word)",
+      "print(count)"
+    ],
+    "id": "Đếm số lần xuất hiện của một từ cho trước",
+    "input_sample": [
+      "Hello world world",
+      "world"
+    ],
+    "output_sample": [
+      "2"
+    ],
+    "point": "40",
+    "short_name": "COUNTWORD"
+  },
+  {
+    "code_sample": [
+      "s = input()",
+      "words = s.split()",
+      "max_word = max(words, key=len)",
+      "print(max_word)"
+    ],
+    "id": "Tìm từ dài nhất trong xâu",
+    "input_sample": [
+      "hello world this is a test"
+    ],
+    "output_sample": [
+      "hello"
+    ],
+    "point": "40",
+    "short_name": "MAXWORD"
+  },
+  {
+    "code_sample": [
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "m = int(input())",
+      "arr.append(m)",
+      "arr.sort()",
+      "print(' '.join(map(str, arr)))"
+    ],
+    "id": "Tạo số lớn nhất có thể bằng cách thêm một số",
+    "input_sample": [
+      "5",
+      "3 1 9 7 2",
+      "10"
+    ],
+    "output_sample": [
+      "1 2 3 7 9 10"
+    ],
+    "point": "50",
+    "short_name": "MAXWITHM"
+  },
+  {
+    "code_sample": [
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "arr.sort(reverse=True)",
+      "print(' '.join(map(str, arr)))"
+    ],
+    "id": "Tạo số lớn nhất có thể từ dãy số có một số số bị trùng lặp",
+    "input_sample": [
+      "5",
+      "3 1 9 7 7"
+    ],
+    "output_sample": [
+      "9 7 7 3 1"
+    ],
+    "point": "50",
+    "short_name": "MAXDUP"
+  },
+  {
+    "code_sample": [
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "count = {}",
+      "for num in arr:",
+      "    if num in count:",
+      "        count[num] += 1",
+      "    else:",
+      "        count[num] = 1",
+      "min_count = min(count.values())",
+      "min_num = min([key for key, value in count.items() if value == min_count])",
+      "print(min_num)"
+    ],
+    "id": "Tìm số xuất hiện ít nhất",
+    "input_sample": [
+      "6",
+      "4 3 3 4 2 2"
+    ],
+    "output_sample": [
+      "2"
+    ],
+    "point": "40",
+    "short_name": "MINOCC"
+  },
+  {
+    "code_sample": [
+      "n, k = map(int, input().split())",
+      "arr = list(map(int, input().split()))",
+      "count = {}",
+      "for num in arr:",
+      "    if num in count:",
+      "        count[num] += 1",
+      "    else:",
+      "        count[num] = 1",
+      "result = len([num for num, c in count.items() if c == k])",
+      "print(result)"
+    ],
+    "id": "Đếm số lượng số xuất hiện đúng k lần",
+    "input_sample": [
+      "6 2",
+      "4 3 3 4 2 2"
+    ],
+    "output_sample": [
+      "2"
+    ],
+    "point": "50",
+    "short_name": "COUNTK"
+  },
+  {
+    "code_sample": [
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "arr.sort(key=lambda x: (x % 2 == 0, x))",
+      "print(' '.join(map(str, arr)))"
+    ],
+    "id": "Sắp xếp số lẻ trước, số chẵn sau",
+    "input_sample": [
+      "6",
+      "1 2 3 4 5 6"
+    ],
+    "output_sample": [
+      "1 3 5 2 4 6"
+    ],
+    "point": "40",
+    "short_name": "ODDEVEN"
+  },
+  {
+    "code_sample": [
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "arr.sort(key=lambda x: (x % 3 == 0, x))",
+      "print(' '.join(map(str, arr)))"
+    ],
+    "id": "Sắp xếp số theo thứ tự tăng dần nhưng các số là bội của 3 phải ở cuối",
+    "input_sample": [
+      "6",
+      "1 2 3 4 5 6"
+    ],
+    "output_sample": [
+      "1 2 4 5 3 6"
+    ],
+    "point": "40",
+    "short_name": "SORT3END"
+  },
+  {
+    "code_sample": [
+      "def is_palindrome(s):",
+      "    return s == s[::-1]",
+      "",
+      "n = int(input())",
+      "s = input()",
+      "count = 0",
+      "for i in range(n):",
+      "    for j in range(i + 1, n + 1):",
+      "        sub = s[i:j]",
+      "        if len(sub) % 2 == 1 and is_palindrome(sub):",
+      "            count += 1",
+      "print(count)"
+    ],
+    "id": "Đếm số lượng chuỗi con có độ dài lẻ và đối xứng",
+    "input_sample": [
+      "5",
+      "abcba"
+    ],
+    "output_sample": [
+      "5"
+    ],
+    "point": "50",
+    "short_name": "COUNTPALINDROME"
+  },
+  {
+    "code_sample": [
+      "def is_palindrome(s):",
+      "    return s == s[::-1]",
+      "",
+      "n, k = map(int, input().split())",
+      "s = input()",
+      "for i in range(n - k + 1):",
+      "    for j in range(i + k, n + 1):",
+      "        sub = s[i:j]",
+      "        if is_palindrome(sub):",
+      "            print('YES')",
+      "            exit()",
+      "print('NO')"
+    ],
+    "id": "Kiểm tra xem xâu có chứa chuỗi con đối xứng với độ dài tối thiểu k",
+    "input_sample": [
+      "7 3",
+      "abacaba"
+    ],
+    "output_sample": [
+      "YES"
+    ],
+    "point": "50",
+    "short_name": "PALINDROMECHK"
+  },
+  {
+    "code_sample": [
+      "s = input()",
+      "total = 0",
+      "for char in s:",
+      "    if char.isdigit() and int(char) % 2 == 1:",
+      "        total += int(char)",
+      "print(total)"
+    ],
+    "id": "Tính tổng các chữ số lẻ trong xâu",
+    "input_sample": [
+      "123456789"
+    ],
+    "output_sample": [
+      "25"
+    ],
+    "point": "30",
+    "short_name": "ODDSUM"
+  },
+  {
+    "code_sample": [
+      "s = input()",
+      "max_digit = -1",
+      "for char in s:",
+      "    if char.isdigit():",
+      "        max_digit = max(max_digit, int(char))",
+      "print(max_digit)"
+    ],
+    "id": "Tìm chữ số lớn nhất trong xâu",
+    "input_sample": [
+      "abc123xyz456"
+    ],
+    "output_sample": [
+      "6"
+    ],
+    "point": "30",
+    "short_name": "MAXDIGIT"
+  },
+  {
+    "code_sample": [
+      "s = input()",
+      "sum_digits = sum(int(char) for char in s if char.isdigit())",
+      "def is_prime(n):",
+      "    if n < 2:",
+      "        return False",
+      "    for i in range(2, int(n ** 0.5) + 1):",
+      "        if n % i == 0:",
+      "            return False",
+      "    return True",
+      "if is_prime(sum_digits):",
+      "    print('YES')",
+      "else:",
+      "    print('NO')"
+    ],
+    "id": "Kiểm tra xem tổng các chữ số trong xâu có phải là số nguyên tố hay không",
+    "input_sample": [
+      "abc123xyz456"
+    ],
+    "output_sample": [
+      "NO"
+    ],
+    "point": "40",
+    "short_name": "SUMPRIME"
+  },
+  {
+    "code_sample": [
+      "s = input()",
+      "n, k = map(int, s.split())",
+      "s = input()",
+      "char_count = {}",
+      "max_len = 0",
+      "left = 0",
+      "for right in range(n):",
+      "    char_count[s[right]] = char_count.get(s[right], 0) + 1",
+      "    while char_count[s[right]] > k:",
+      "        char_count[s[left]] -= 1",
+      "        left += 1",
+      "    max_len = max(max_len, right - left + 1)",
+      "print(max_len)"
+    ],
+    "id": "Tìm chuỗi con có độ dài lớn nhất mà không có ký tự nào lặp lại quá k lần",
+    "input_sample": [
+      "7 2",
+      "abcacde"
+    ],
+    "output_sample": [
+      "5"
+    ],
+    "point": "60",
+    "short_name": "MAXSUBSTR"
+  },
+  {
+    "code_sample": [
+      "s = input()",
+      "n, k = map(int, input().split())",
+      "s = input()",
+      "count = 0",
+      "for i in range(n):",
+      "    for j in range(i + k, n + 1):",
+      "        if len(set(s[i:j])) == j - i:",
+      "            count += 1",
+      "print(count)"
+    ],
+    "id": "Đếm số lượng chuỗi con có tất cả các ký tự khác nhau với độ dài lớn hơn hoặc bằng k",
+    "input_sample": [
+      "6",
+      "abcabc"
+    ],
+    "output_sample": [
+      "3"
+    ],
+    "point": "60",
+    "short_name": "UNIQSUB"
+  },
+  {
+    "code_sample": [
+      "def gcd(a, b):",
+      "    while b:",
+      "        a, b = b, a % b",
+      "    return a",
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "result = arr[0]",
+      "for num in arr[1:]:",
+      "    result = gcd(result, num)",
+      "print(result)"
+    ],
+    "id": "Tìm số lớn nhất chia hết cho tất cả các số trong dãy",
+    "input_sample": [
+      "6",
+      "2 4 6 8 10 12"
+    ],
+    "output_sample": [
+      "12"
+    ],
+    "point": "50",
+    "short_name": "DIVMAX"
+  },
+  {
+    "code_sample": [
+      "n, k = map(int, input().split())",
+      "arr = list(map(int, input().split()))",
+      "arr = [x + k for x in arr]",
+      "result = arr[0]",
+      "for num in arr:",
+      "    result = (result * num) // math.gcd(result, num)",
+      "print(result)"
+    ],
+    "id": "Tìm số nhỏ nhất chia hết cho tất cả các số trong dãy sau khi tăng mỗi số lên k",
+    "input_sample": [
+      "5",
+      "3 6 9 12 15",
+      "2"
+    ],
+    "output_sample": [
+      "30"
+    ],
+    "point": "70",
+    "short_name": "DIVKADJUST"
+  },
+  {
+    "code_sample": [
+      "from collections import Counter",
+      "n, k = map(int, input().split())",
+      "arr = list(map(int, input().split()))",
+      "counter = Counter(arr)",
+      "arr = [num for num in arr if counter[num] != k]",
+      "print(' '.join(map(str, arr)))"
+    ],
+    "id": "Xóa các phần tử xuất hiện đúng k lần trong danh sách",
+    "input_sample": [
+      "6",
+      "1 2 2 3 3 3",
+      "2"
+    ],
+    "output_sample": [
+      "1 3 3 3"
+    ],
+    "point": "50",
+    "short_name": "REMOVEK"
+  },
+  {
+    "code_sample": [
+      "from collections import Counter",
+      "n, k = map(int, input().split())",
+      "arr = list(map(int, input().split()))",
+      "counter = Counter(arr)",
+      "arr = [num for num in arr if counter[num] <= k]",
+      "print(' '.join(map(str, arr)))"
+    ],
+    "id": "Xóa tất cả các phần tử xuất hiện nhiều hơn k lần",
+    "input_sample": [
+      "6",
+      "1 2 2 3 3 3",
+      "2"
+    ],
+    "output_sample": [
+      "1 2 2 3 3"
+    ],
+    "point": "60",
+    "short_name": "REMOVEEXTRA"
+  },
+  {
+    "code_sample": [
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "result = []",
+      "for i in range(n-1, -1, -1):",
+      "    if arr[i] not in result:",
+      "        result.append(arr[i])",
+      "result.reverse()",
+      "print(' '.join(map(str, result)))"
+    ],
+    "id": "Xóa các phần tử trùng lặp nhưng giữ lại phần tử cuối cùng trong danh sách",
+    "input_sample": [
+      "6",
+      "1 2 3 2 1 4"
+    ],
+    "output_sample": [
+      "3 2 1 4"
+    ],
+    "point": "60",
+    "short_name": "REM_DUPLAST"
+  },
+  {
+    "code_sample": [
+      "n = int(input())",
+      "s = input()",
+      "t = input()",
+      "index = s.find(t) + 1",
+      "if index == 0:",
+      "    print(-1)",
+      "else:",
+      "    print(index)"
+    ],
+    "id": "Tìm vị trí đầu tiên của chuỗi con trong chuỗi",
+    "input_sample": [
+      "8",
+      "abcdefgh",
+      "def"
+    ],
+    "output_sample": [
+      "4"
+    ],
+    "point": "40",
+    "short_name": "FINDPOS"
+  },
+  {
+    "code_sample": [
+      "n = int(input())",
+      "s = input()",
+      "t = input()",
+      "if t in s:",
+      "    print('YES')",
+      "else:",
+      "    print('NO')"
+    ],
+    "id": "Kiểm tra xem chuỗi con T có phải là chuỗi con của S hay không",
+    "input_sample": [
+      "8",
+      "abcdefgh",
+      "abc"
+    ],
+    "output_sample": [
+      "YES"
+    ],
+    "point": "30",
+    "short_name": "CHECKSUB"
+  },
+  {
+    "code_sample": [
+      "n = int(input())",
+      "s = input()",
+      "t = input()",
+      "s_double = s + s",
+      "count = 0",
+      "for i in range(n):",
+      "    if s_double[i:i + len(t)] == t:",
+      "        count += 1",
+      "print(count)"
+    ],
+    "id": "Đếm số lần xuất hiện của chuỗi con trong chuỗi với phép xoay vòng",
+    "input_sample": [
+      "6",
+      "abcabc",
+      "abc"
+    ],
+    "output_sample": [
+      "2"
+    ],
+    "point": "40",
+    "short_name": "CIRCULAR"
+  },
+  {
+    "code_sample": [
+      "def is_fibonacci(n):",
+      "    a, b = 0, 1",
+      "    while b < n:",
+      "        a, b = b, a + b",
+      "    return b == n",
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "max_fib = -1",
+      "for num in arr:",
+      "    if is_fibonacci(num) and num > max_fib:",
+      "        max_fib = num",
+      "print(max_fib)"
+    ],
+    "id": "Tìm số Fibonacci lớn nhất trong dãy",
+    "input_sample": [
+      "6",
+      "1 4 6 8 13 21"
+    ],
+    "output_sample": [
+      "21"
+    ],
+    "point": "50",
+    "short_name": "FIBMAX"
+  },
+  {
+    "code_sample": [
+      "def is_fibonacci(n):",
+      "    a, b = 0, 1",
+      "    while b < n:",
+      "        a, b = b, a + b",
+      "    return b == n",
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "min_fib = float('inf')",
+      "min_index = -1",
+      "for idx, num in enumerate(arr):",
+      "    if is_fibonacci(num) and num < min_fib:",
+      "        min_fib = num",
+      "        min_index = idx + 1",
+      "if min_fib == float('inf'):",
+      "    print(-1)",
+      "else:",
+      "    print(min_fib)",
+      "    print(min_index)"
+    ],
+    "id": "Tìm số Fibonacci nhỏ nhất trong dãy và in ra vị trí của nó",
+    "input_sample": [
+      "6",
+      "1 4 6 8 13 21"
+    ],
+    "output_sample": [
+      "1",
+      "1"
+    ],
+    "point": "50",
+    "short_name": "FIBMIN"
+  },
+  {
+    "code_sample": [
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "dp = [0] * n",
+      "dp[0] = arr[0]",
+      "for i in range(1, n):",
+      "    dp[i] = max(dp[i-1], arr[i] + (dp[i-2] if i > 1 else 0))",
+      "print(dp[-1])"
+    ],
+    "id": "Tìm dãy con liên tiếp có tổng lớn nhất với các phần tử không liên tiếp nhau",
+    "input_sample": [
+      "6",
+      "3 -2 5 10 -3 4"
+    ],
+    "output_sample": [
+      "15"
+    ],
+    "point": "50",
+    "short_name": "MAXSUBSUMNON"
+  },
+  {
+    "code_sample": [
+      "s = input()",
+      "words = s.split()",
+      "count = 0",
+      "for word in words:",
+      "    if len(word) % 2 == 0:",
+      "        count += 1",
+      "print(count)"
+    ],
+    "id": "Đếm số lượng từ có độ dài chẵn trong xâu",
+    "input_sample": [
+      "hello world test example"
+    ],
+    "output_sample": [
+      "2"
+    ],
+    "point": "40",
+    "short_name": "EVENWORDS"
+  },
+  {
+    "code_sample": [
+      "s = input()",
+      "words = s.split()",
+      "count = 0",
+      "for word in words:",
+      "    if any(c.isdigit() for c in word):",
+      "        count += 1",
+      "print(count)"
+    ],
+    "id": "Đếm số lượng từ có chứa ít nhất một chữ số",
+    "input_sample": [
+      "hello 123 world 45 test 678"
+    ],
+    "output_sample": [
+      "3"
+    ],
+    "point": "50",
+    "short_name": "NUMWORDS"
+  },
+  {
+    "code_sample": [
+      "s = input()",
+      "words = s.split()",
+      "count = 0",
+      "for word in words:",
+      "    if word[0].lower() in ['a', 'e', 'i', 'o', 'u']:",
+      "        count += 1",
+      "print(count)"
+    ],
+    "id": "Đếm số lượng từ bắt đầu bằng nguyên âm trong xâu",
+    "input_sample": [
+      "apple orange banana egg animal zebra"
+    ],
+    "output_sample": [
+      "4"
+    ],
+    "point": "40",
+    "short_name": "VOWELWORD"
+  },
+  {
+    "code_sample": [
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "is_increasing = True",
+      "for i in range(1, n):",
+      "    if arr[i] <= arr[i-1] or arr[i] % 2 != 0:",
+      "        is_increasing = False",
+      "        break",
+      "print('YES' if is_increasing else 'NO')"
+    ],
+    "id": "Kiểm tra danh sách có phải là danh sách tăng dần chẵn hay không",
+    "input_sample": [
+      "5",
+      "2 4 6 8 10"
+    ],
+    "output_sample": [
+      "YES"
+    ],
+    "point": "40",
+    "short_name": "EVENORDER"
+  },
+  {
+    "code_sample": [
+      "s = input()",
+      "even_count = 0",
+      "for char in s:",
+      "    if char.isdigit() and int(char) % 2 == 0:",
+      "        even_count += 1",
+      "print(even_count)"
+    ],
+    "id": "Đếm số lượng chữ số chẵn xuất hiện trong xâu",
+    "input_sample": [
+      "a1b2c3d4e5f6g7h8i9"
+    ],
+    "output_sample": [
+      "4"
+    ],
+    "point": "40",
+    "short_name": "EVENCOUNT"
+  },
+  {
+    "code_sample": [
+      "s = input()",
+      "digit_sum = 0",
+      "for char in s:",
+      "    if char.isdigit():",
+      "        digit_sum += int(char)",
+      "print(digit_sum)"
+    ],
+    "id": "Đếm tổng các chữ số xuất hiện trong xâu",
+    "input_sample": [
+      "a1b2c3d4e5f6g7h8i9"
+    ],
+    "output_sample": [
+      "45"
+    ],
+    "point": "30",
+    "short_name": "SUMDIGITS"
+  },
+  {
+    "code_sample": [
+      "s = input()",
+      "odd_count = 0",
+      "for char in s:",
+      "    if char.isdigit() and int(char) % 2 == 1:",
+      "        odd_count += 1",
+      "print(odd_count)"
+    ],
+    "id": "Đếm số lượng chữ số lẻ xuất hiện trong xâu",
+    "input_sample": [
+      "a1b2c3d4e5f6g7h8i9"
+    ],
+    "output_sample": [
+      "5"
+    ],
+    "point": "30",
+    "short_name": "COUNTODD"
+  },
+  {
+    "code_sample": [
+      "n, k = map(int, input().split())",
+      "arr = list(map(int, input().split()))",
+      "min_sum = sum(arr[:k])",
+      "for i in range(1, n - k + 1):",
+      "    current_sum = sum(arr[i:i+k])",
+      "    if current_sum < min_sum:",
+      "        min_sum = current_sum",
+      "print(min_sum)"
+    ],
+    "id": "Tìm tổng nhỏ nhất của dãy con liên tiếp với k phần tử",
+    "input_sample": [
+      "6 3",
+      "2 4 1 3 6 5"
+    ],
+    "output_sample": [
+      "6"
+    ],
+    "point": "40",
+    "short_name": "MINSUMK"
+  },
+  {
+    "code_sample": [
+      "n, k = map(int, input().split())",
+      "arr = list(map(int, input().split()))",
+      "max_sum = sum(arr[:k])",
+      "for i in range(1, n - k + 1):",
+      "    current_sum = sum(arr[i:i+k])",
+      "    if current_sum > max_sum:",
+      "        max_sum = current_sum",
+      "print(max_sum)"
+    ],
+    "id": "Tìm tổng lớn nhất của dãy con liên tiếp với độ dài tối thiểu k",
+    "input_sample": [
+      "6 3",
+      "2 4 1 3 6 5"
+    ],
+    "output_sample": [
+      "12"
+    ],
+    "point": "50",
+    "short_name": "MAXSUBSUM"
+  },
+  {
+    "code_sample": [
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "average = sum(arr) / n",
+      "count = 0",
+      "for num in arr:",
+      "    if num > average:",
+      "        count += 1",
+      "print(count)"
+    ],
+    "id": "Đếm số phần tử lớn hơn giá trị trung bình",
+    "input_sample": [
+      "6",
+      "1 2 3 4 5 6"
+    ],
+    "output_sample": [
+      "3"
+    ],
+    "point": "60",
+    "short_name": "COUNTABOVEAVG"
+  },
+  {
+    "code_sample": [
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "average = sum(arr) / n",
+      "count = 0",
+      "for num in arr:",
+      "    if num == average:",
+      "        count += 1",
+      "print(count)"
+    ],
+    "id": "Đếm số phần tử bằng giá trị trung bình",
+    "input_sample": [
+      "6",
+      "1 2 3 4 5 6"
+    ],
+    "output_sample": [
+      "1"
+    ],
+    "point": "60",
+    "short_name": "COUNTAVG"
+  },
+  {
+    "code_sample": [
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "average = sum(arr) / n",
+      "min_above_avg = -1",
+      "for num in arr:",
+      "    if num > average:",
+      "        if min_above_avg == -1 or num < min_above_avg:",
+      "            min_above_avg = num",
+      "print(min_above_avg)"
+    ],
+    "id": "Tìm phần tử nhỏ nhất lớn hơn giá trị trung bình",
+    "input_sample": [
+      "6",
+      "1 2 3 4 5 6"
+    ],
+    "output_sample": [
+      "4"
+    ],
+    "point": "60",
+    "short_name": "MINABOVEAVG"
+  },
+  {
+    "code_sample": [
+      "s = input()",
+      "k = int(input())",
+      "count = 0",
+      "for i in range(len(s)):",
+      "    for j in range(i + k, len(s) + 1):",
+      "        sub = s[i:j]",
+      "        if sub == sub[::-1]:",
+      "            count += 1",
+      "print(count)"
+    ],
+    "id": "Đếm số lượng chuỗi con là số nhị phân đối xứng có độ dài ít nhất k",
+    "input_sample": [
+      "3",
+      "110101101"
+    ],
+    "output_sample": [
+      "4"
+    ],
+    "point": "80",
+    "short_name": "COUNTPALBIN"
+  },
+  {
+    "code_sample": [
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "count = 0",
+      "for i in range(n - 1):",
+      "    if arr[i] < arr[i + 1]:",
+      "        count += 1",
+      "print(count)"
+    ],
+    "id": "Đếm số phần tử nhỏ hơn phần tử kế tiếp",
+    "input_sample": [
+      "5",
+      "1 3 2 5 4"
+    ],
+    "output_sample": [
+      "3"
+    ],
+    "point": "60",
+    "short_name": "COUNTLESS"
+  },
+  {
+    "code_sample": [
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "max_element = -1",
+      "for i in range(1, n):",
+      "    if arr[i] > arr[i - 1]:",
+      "        max_element = max(max_element, arr[i])",
+      "print(max_element)"
+    ],
+    "id": "Tìm phần tử lớn nhất mà lớn hơn phần tử kế trước",
+    "input_sample": [
+      "5",
+      "1 3 2 5 4"
+    ],
+    "output_sample": [
+      "5"
+    ],
+    "point": "60",
+    "short_name": "MAXAFTER"
+  },
+  {
+    "code_sample": [
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "count = 0",
+      "for i in range(1, n - 1):",
+      "    if arr[i] > arr[i - 1] and arr[i] > arr[i + 1]:",
+      "        count += 1",
+      "print(count)"
+    ],
+    "id": "Đếm số phần tử lớn hơn cả phần tử trước và sau nó",
+    "input_sample": [
+      "6",
+      "1 3 2 5 4 6"
+    ],
+    "output_sample": [
+      "2"
+    ],
+    "point": "60",
+    "short_name": "COUNTPEAK"
+  },
+  {
+    "code_sample": [
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "min_prod = float('inf')",
+      "for i in range(n):",
+      "    prod = 1",
+      "    for j in range(i, n):",
+      "        prod *= arr[j]",
+      "        min_prod = min(min_prod, prod)",
+      "print(min_prod)"
+    ],
+    "id": "Tìm tích nhỏ nhất của dãy con liên tiếp",
+    "input_sample": [
+      "6",
+      "2 3 1 4 5 6"
+    ],
+    "output_sample": [
+      "1"
+    ],
+    "point": "60",
+    "short_name": "MINPROD"
+  },
+  {
+    "code_sample": [
+      "n, k = map(int, input().split())",
+      "arr = list(map(int, input().split()))",
+      "max_prod = float('-inf')",
+      "for i in range(n - k + 1):",
+      "    prod = 1",
+      "    for j in range(i, i + k):",
+      "        prod *= arr[j]",
+      "    max_prod = max(max_prod, prod)",
+      "print(max_prod)"
+    ],
+    "id": "Tìm dãy con có tích lớn nhất và độ dài tối thiểu k",
+    "input_sample": [
+      "6 3",
+      "2 3 1 4 5 6"
+    ],
+    "output_sample": [
+      "60"
+    ],
+    "point": "80",
+    "short_name": "MAXPROD"
+  },
+  {
+    "code_sample": [
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "max_prod = float('-inf')",
+      "prod = 1",
+      "for i in range(n):",
+      "    if arr[i] < 0:",
+      "        prod = 1",
+      "    else:",
+      "        prod *= arr[i]",
+      "    max_prod = max(max_prod, prod)",
+      "print(max_prod)"
+    ],
+    "id": "Tìm dãy con liên tiếp có tích lớn nhất mà không có số âm",
+    "input_sample": [
+      "6",
+      "2 3 -1 4 5 -2 6"
+    ],
+    "output_sample": [
+      "120"
+    ],
+    "point": "70",
+    "short_name": "MAXPOSPROD"
+  },
+  {
+    "code_sample": [
+      "s = input()",
+      "words = s.split()",
+      "count = 0",
+      "for word in words:",
+      "    if word[0].isupper():",
+      "        count += 1",
+      "print(count)"
+    ],
+    "id": "Đếm số lượng từ bắt đầu bằng chữ hoa",
+    "input_sample": [
+      "Hello world, This Is A Test"
+    ],
+    "output_sample": [
+      "4"
+    ],
+    "point": "50",
+    "short_name": "COUNTUPPER"
+  },
+  {
+    "code_sample": [
+      "s = input()",
+      "words = s.split()",
+      "count = 0",
+      "for word in words:",
+      "    if word.isupper():",
+      "        count += 1",
+      "print(count)"
+    ],
+    "id": "Đếm số lượng từ chỉ chứa chữ hoa",
+    "input_sample": [
+      "HELLO WORLD THIS IS A TEST"
+    ],
+    "output_sample": [
+      "5"
+    ],
+    "point": "60",
+    "short_name": "COUNTUPPER"
+  },
+  {
+    "code_sample": [
+      "s = input()",
+      "words = s.split()",
+      "sum = 0",
+      "spaces = 0",
+      "for word in words:",
+      "    if word.isdigit() and int(word) % 5 == 0:",
+      "        sum += int(word)",
+      "    elif word == ' ':",
+      "        spaces += 1",
+      "print(sum)",
+      "print(spaces)"
+    ],
+    "id": "Tính tổng các số chia hết cho 5 và số khoảng trắng",
+    "input_sample": [
+      "5 10 15 20 25 30 35 40",
+      "a b c  d e f g h "
+    ],
+    "output_sample": [
+      "150",
+      "6"
+    ],
+    "point": "150",
+    "short_name": "TONGSO5"
+  },
+  {
+    "code_sample": [
+      "import math",
+      "def is_prime(n):",
+      "    if n < 2:",
+      "        return False",
+      "    for i in range(2, int(math.sqrt(n)) + 1):",
+      "        if n % i == 0:",
+      "            return False",
+      "    return True",
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "for num in arr:",
+      "    if not is_prime(num):",
+      "        print('NO')",
+      "        break",
+      "else:",
+      "    print('YES')"
+    ],
+    "id": "Kiểm tra dãy số có phải là dãy số nguyên tố hay không",
+    "input_sample": [
+      "5",
+      "2 3 5 7 11"
+    ],
+    "output_sample": [
+      "YES"
+    ],
+    "point": "150",
+    "short_name": "KIEMTRA"
+  },
+  {
+    "code_sample": [
+      "import math",
+      "def is_prime(n):",
+      "    if n < 2:",
+      "        return False",
+      "    for i in range(2, int(math.sqrt(n)) + 1):",
+      "        if n % i == 0:",
+      "            return False",
+      "    return True",
+      "n = int(input())",
+      "arr = list(map(int, input().split()))",
+      "max_len = 0",
+      "count = 0",
+      "for num in arr:",
+      "    if is_prime(num):",
+      "        count += 1",
+      "    else:",
+      "        max_len = max(max_len, count)",
+      "        count = 0",
+      "max_len = max(max_len, count)",
+      "print(max_len)"
+    ],
+    "id": "Đếm số lượng số nguyên tố trong dãy con liên tiếp có độ dài lớn nhất",
+    "input_sample": [
+      "6",
+      "2 3 5 7 11 4"
+    ],
+    "output_sample": [
+      "4"
+    ],
+    "point": "160",
+    "short_name": "DEMNGTO"
+  },
+  {
+    "code_sample": [
+      "s = input()",
+      "even_sum = 0",
+      "special_char_count = 0",
+      "for char in s:",
+      "    if char.isdigit() and int(char) % 2 == 0:",
+      "        even_sum += int(char)",
+      "    elif not char.isalnum():",
+      "        special_char_count += 1",
+      "print(even_sum)",
+      "print(special_char_count)"
+    ],
+    "id": "Tính tổng các chữ số chẵn và số lượng ký tự đặc biệt Input:",
+    "input_sample": [
+      "abc123!@#456*()"
+    ],
+    "output_sample": [
+      "12",
+      "6"
+    ],
+    "point": "160",
+    "short_name": "TONGCHU"
+  }
+]
