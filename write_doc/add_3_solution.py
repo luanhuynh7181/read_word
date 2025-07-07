@@ -10,7 +10,7 @@ from pygments import lex
 from pygments.lexers import PythonLexer
 from pygments.token import Token
 
-def write_solution_exercise(doc: Document, solutionExercise: List[Solution], group_solutions: List[object]): # type: ignore
+def write_solution_exercise(doc: Document, solutionExercise: List[Solution]): # type: ignore
     header = doc.add_heading(f"Hướng dẫn giải", level=2)
     add_style_paragraph(header, {
             'rgb_color': RGBColor(255, 0, 0),
@@ -47,7 +47,7 @@ def write_solution_exercise(doc: Document, solutionExercise: List[Solution], gro
             'alignment': WD_PARAGRAPH_ALIGNMENT.LEFT,
             'bold': True
         })
-        create_code_table(doc, group_solutions[i]["code_sample"]) # type: ignore
+        create_code_table(doc, exercise.code_sample) # type: ignore
     pass
 
 def create_code_table(doc: Document, code: List[str]): # type: ignore
