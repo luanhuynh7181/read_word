@@ -27,16 +27,19 @@ def lamdata_check(data):
 
 
 if __name__ == "__main__":
-    json_file = "data1.json"
+    json_file = "data_extend.json"
     with open(json_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
-
-    
-    for item in data:
+    dif = 0
+    for i, item in enumerate(data):
+        # print(i , item["id"])
         res = lamdata_check(item)
+        
         if not res == item["output_sample"]:
             item["output_sample"] = res
-
+            dif += 1
+           
+    print(f"dif:{dif}/{len(data)}")
     with open(json_file, "w", encoding="utf-8") as f:
         json.dump(data, f, 
                 ensure_ascii=False, 
