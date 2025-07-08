@@ -68,3 +68,28 @@ def write_exercise(doc: Document, baseExercise: List[ExtendedExercise], prefix: 
         add_style_cell(table.cell(0, 1), 'Output', table_style)
         table.alignment = WD_TABLE_ALIGNMENT.CENTER
 
+        table_style = {
+            'alignment': WD_PARAGRAPH_ALIGNMENT.LEFT,
+            'vertical_alignment': WD_CELL_VERTICAL_ALIGNMENT.CENTER,
+            'font_size': 14
+        }
+        input_sample = exercise.input_sample
+        for j in range(len(input_sample)):
+            if(j == 0):
+                add_style_cell(table.cell(1, 0), input_sample[j], table_style)
+            else:
+                add_style_text(table.cell(1, 0), input_sample[j], table_style)
+        
+        table_style = {
+            'alignment': WD_PARAGRAPH_ALIGNMENT.LEFT,
+            'vertical_alignment': WD_CELL_VERTICAL_ALIGNMENT.TOP,
+            'font_size': 14
+        }
+        output_sample = exercise.output_sample
+        for j, value in enumerate(output_sample):
+            if(j == 0):
+                add_style_cell(table.cell(1, 1), str(value), table_style)
+            else:
+                add_style_text(table.cell(1, 1), str(value), table_style)
+
+

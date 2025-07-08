@@ -33,7 +33,7 @@ def write_doc(groupExercises: List[GroupExercise]):
         count += 1
         
         write_group_exercise(groupExercises[i:i+4], count)
-        print(f"Đã xử lý {count}/30 nhóm")
+        print(f"writen {count}/30")
     doc.save(docFile)
         
 def write_group_exercise(groupExercise: List[GroupExercise], count: int):
@@ -62,7 +62,7 @@ def write_extended_exercises(extendedExercises: List[List[ExtendedExercise]]):
 
 if __name__ == "__main__":
     print_info("running...")
-    exercises = extract_exercises_from_docx( "../files/2_de.docx")
+    exercises = extract_exercises_from_docx( "../files/sach.docx")
     group_exercises = create_group_exercises(exercises)
     write_doc(group_exercises)
     # convert("output.docx", "output.pdf")

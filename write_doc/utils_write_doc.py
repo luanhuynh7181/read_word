@@ -139,7 +139,6 @@ def add_style_text(parent, text, style):
 def add_style_cell(cell, text, style):
     cell.text = text
     add_style_paragraph(cell.paragraphs[0], style)
-    cell.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
     tc = cell._tc
     tcPr = tc.get_or_add_tcPr()
 

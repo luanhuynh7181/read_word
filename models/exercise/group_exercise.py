@@ -7,7 +7,7 @@ from utils import print_error, print_info
 
 class GroupExercise:
     def __init__(self, baseExercise: Exercise, solutionExercise:Solution, extendedExercises: Optional[List[ExtendedExercise]] = None):
-        self.baseExercise = baseExercise
+        self.baseExercise = baseExercise 
         self.solutionExercise = solutionExercise
         self.extendedExercises = extendedExercises or []
     

@@ -47,15 +47,36 @@ def send_prompt_to_chatgpt(driver, prompt, title):
         print(f"Lỗi khi gửi prompt: {e}")
         return False
 
+def send_prompt_to_deepseek(driver, prompt, title):
+    try:
+        # Find chat input
+        chat_input = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.ID, "chat-input"))
+        )
+        chat_input.clear()
+        chat_input.send_keys(prompt)
+        sleep(2)
+        # Find and click send button
+        send_button = WebDriverWait(driver, 10).until(
+             EC.element_to_be_clickable((By.CSS_SELECTOR, "div._7436101[role='button']"))
+        )
+        send_button.click()
+        print(f"Đã gửi prompt: {title}...")
+        return True
+    except Exception as e:
+        print(f"Lỗi khi gửi prompt: {e}")
+        return False
+
+
 def get_latest_response(driver, search_text="Tìm số nguyên", timeout=30, poll_frequency=0.5):
     try:
         # Chờ cho đến khi có response chứa span với nội dung cần tìm
-        WebDriverWait(driver, timeout, poll_frequency).until(
-            lambda d: d.find_elements(By.XPATH, f"//span[contains(., '{search_text}')]")
-        )
+        # WebDriverWait(driver, timeout, poll_frequency).until(
+        #     lambda d: d.find_elements(By.XPATH, f'//span[contains(., "{search_text}")]')
+        # )
         
         # Tìm tất cả các span chứa nội dung
-        spans = driver.find_elements(By.XPATH, f"//span[contains(., '{search_text}')]")
+        spans = driver.find_elements(By.XPATH, f'//span[contains(., "{search_text}")]')
         
         if not spans:
             print(f"Không tìm thấy span chứa nội dung '{search_text}'")
@@ -82,7 +103,7 @@ def get_latest_response(driver, search_text="Tìm số nguyên", timeout=30, pol
         return None
     except StaleElementReferenceException:
         print("Element không còn tồn tại, thử lại...")
-        return get_latest_response(driver, search_text, timeout)  # Retry
+        # return get_latest_response(driver, search_text, timeout)  # Retry
     except Exception as e:
         print(f"Lỗi không xác định: {str(e)}")
         return None
@@ -91,14 +112,15 @@ def process_prompts(prompts_list):
     driver = setup_driver()
     print_info("Tạo trình duyệt thành công")
     try:
-        driver.get("https://chatgpt.com/c/686aa684-1a4c-800d-9d95-c740679c41a3")
+        sleep(2)
+        driver.get("https://chatgpt.com/c/686aa0e9-9128-800d-b71c-d70579a640f7")
 
         results = []
-        
+        sleep(2)
         for prompt in prompts_list:
-            sleep(1)
+            sleep(2)
             if send_prompt_to_chatgpt(driver, prompt["prompt"], prompt["title"]):
-                sleep(6)  # Wait for response to start
+                sleep(15)  # Wait for response to start
                 response = get_latest_response(driver, prompt["title"])
                 results.append(response)
                 write_data(response, prompt["title"])
@@ -223,7 +245,7 @@ def write_data(response, title):
                 return
      
         data.append(new_item)
-        
+        print_info(f"progress: {len(data)}/360")
         # Ghi file với định dạng đẹp
         with open(json_file, "w", encoding="utf-8") as f:
             json.dump(data, f, 

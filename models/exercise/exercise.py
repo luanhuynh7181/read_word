@@ -12,11 +12,19 @@ class Exercise:
         self.output_section = []
         self.description_section = []
         self.lines =  obj_exercise.content.split('\n')
+
+        input_pattern = re.search(r'input\s*:?', self.title, re.IGNORECASE)
+        if input_pattern:
+            self.title = self.title[:input_pattern.start()].strip()
+            
         self._parse_description()
         self._parse_input()
         self.description_section = remove_empty_items(self.description_section)
         self.input_section = remove_empty_items(self.input_section)
         self.output_section = remove_empty_items(self.lines)
+
+        input_sample = []
+        output_sample = []
     
     def _parse_description(self):
         # remove Ví dụ:
@@ -52,6 +60,16 @@ class Exercise:
         output_pattern = re.search(r'output\s*:?', self.input_section[-1], re.IGNORECASE)
         if output_pattern:
             self.input_section[-1] = self.input_section[-1][:output_pattern.start()].strip()
+
+    def set_solution(self, solution):
+        if not isinstance(solution["input_sample"], list) or len(solution["input_sample"]) == 0:
+            print_error(f"input_sample is not a list or empty in {self.title}")
+        if not isinstance(solution["output_sample"], list) or len(solution["output_sample"]) == 0:
+            print_error(f"output_sample is not a list or empty in {self.title}")
+        self.input_sample = solution["input_sample"]
+        self.output_sample = solution["output_sample"]
+        self.short_name = solution["short_name"]
+        self.point = solution["point"]
 
     def check_error(self):
         if len(self.description_section) == 0:

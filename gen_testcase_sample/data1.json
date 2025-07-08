@@ -164,7 +164,7 @@
       "   day la  mot  xau   van ban   "
     ],
     "output_sample": [
-      "5"
+      "6"
     ],
     "point": "90",
     "short_name": "WORDCOUNT"
@@ -382,7 +382,7 @@
       "ab"
     ],
     "output_sample": [
-      "7"
+      "8"
     ],
     "point": "130",
     "short_name": "COUNTSTR"
@@ -450,7 +450,7 @@
       "day la mot vi du ve xau van ban"
     ],
     "output_sample": [
-      "4"
+      "5"
     ],
     "point": "100",
     "short_name": "ODDLENWRD"
@@ -496,7 +496,7 @@
     ],
     "output_sample": [
       "2",
-      "0",
+      "2",
       "2",
       "2",
       "0",
@@ -573,7 +573,7 @@
       "101001010"
     ],
     "output_sample": [
-      "10101"
+      "10100101"
     ],
     "point": "160",
     "short_name": "PALBIN"
@@ -620,7 +620,7 @@
       "2 -3 4 -1 -2 1"
     ],
     "output_sample": [
-      "48"
+      "24"
     ],
     "point": "130",
     "short_name": "MAXPROD"
@@ -672,7 +672,7 @@
       "abcabcababcabcababcabc"
     ],
     "output_sample": [
-      "abcabc"
+      "abcabcababcabc"
     ],
     "point": "170",
     "short_name": "REPSUBSTR"
@@ -723,7 +723,7 @@
       "1 2 3 4 5 6 7"
     ],
     "output_sample": [
-      "16"
+      "22"
     ],
     "point": "170",
     "short_name": "MAXSUMODD"
@@ -747,7 +747,7 @@
       "Toi hoc tot toan ly hoa"
     ],
     "output_sample": [
-      "2"
+      "1"
     ],
     "point": "130",
     "short_name": "MINWORDLEN"
@@ -844,7 +844,7 @@
       "7gk rmn sky fly bcd AEI zoo"
     ],
     "output_sample": [
-      "4"
+      "5"
     ],
     "point": "150",
     "short_name": "COUNTNOAEIOU"
@@ -1061,8 +1061,8 @@
       "mot hai ba bon nam ba hai mot ba bon mot"
     ],
     "output_sample": [
-      "0 0 7 2 2",
-      "mot ba"
+      "0 3 8 0 0",
+      "ba mot"
     ],
     "point": "210",
     "short_name": "WORDSTAT"
@@ -1093,7 +1093,7 @@
       "2 3 4 5"
     ],
     "output_sample": [
-      "6"
+      "8"
     ],
     "point": "200",
     "short_name": "MAXEVEN"
@@ -1115,7 +1115,7 @@
       "ababa"
     ],
     "output_sample": [
-      "9"
+      "4"
     ],
     "point": "100",
     "short_name": "XAUHOANH"
@@ -1413,7 +1413,7 @@
       "2 5 4 5"
     ],
     "output_sample": [
-      "5"
+      "6"
     ],
     "point": "60",
     "short_name": "CAPSO"
@@ -1455,7 +1455,7 @@
       "3"
     ],
     "output_sample": [
-      "7"
+      "5"
     ],
     "point": "160",
     "short_name": "NGUYENCANB"
@@ -1510,7 +1510,7 @@
       "2 3 1 6 4"
     ],
     "output_sample": [
-      "9"
+      "12"
     ],
     "point": "120",
     "short_name": "DAYCONK"
@@ -1530,7 +1530,7 @@
       "day la mot vi du test"
     ],
     "output_sample": [
-      "2"
+      "4"
     ],
     "point": "70",
     "short_name": "DEMCHAN"
@@ -1556,7 +1556,7 @@
       "apple banana abcde effgh ijklmno"
     ],
     "output_sample": [
-      "abcde"
+      "ijklmno"
     ],
     "point": "100",
     "short_name": "TIMTULD"
@@ -1578,7 +1578,7 @@
       "1 5 7 1 5"
     ],
     "output_sample": [
-      "2"
+      "4"
     ],
     "point": "210",
     "short_name": "COUNTPAIR"
@@ -1661,7 +1661,7 @@
       "day la mot vi du ve xau van ban"
     ],
     "output_sample": [
-      "2"
+      "1"
     ],
     "point": "200",
     "short_name": "MAXVOWEL"
@@ -1721,7 +1721,7 @@
       "1 2 2 3 3 3 2"
     ],
     "output_sample": [
-      "2"
+      "3"
     ],
     "point": "200",
     "short_name": "MAXFREQNUM"
@@ -1749,7 +1749,7 @@
       "2 3 -2 4 -1 2"
     ],
     "output_sample": [
-      "48"
+      "96"
     ],
     "point": "250",
     "short_name": "MAXPRODSUB"
@@ -1802,7 +1802,7 @@
       "abcde"
     ],
     "output_sample": [
-      "313"
+      "199"
     ],
     "point": "260",
     "short_name": "MAXPRIMES"
@@ -1828,7 +1828,7 @@
       "1 2 3 4 5 6"
     ],
     "output_sample": [
-      "18"
+      "21"
     ],
     "point": "270",
     "short_name": "MAXSUMSUB"
@@ -1905,7 +1905,7 @@
       "abcde"
     ],
     "output_sample": [
-      "294"
+      "495"
     ],
     "point": "260",
     "short_name": "ASCIISUMK"
@@ -2070,7 +2070,7 @@
     ],
     "output_sample": [
       "4 34",
-      "7 27"
+      "6 27"
     ],
     "point": "150",
     "short_name": "CUSTFLOW"
@@ -2129,7 +2129,7 @@
       "10 5 3"
     ],
     "output_sample": [
-      "13"
+      "18"
     ],
     "point": "210",
     "short_name": "OPTIPROD"
@@ -2184,8 +2184,8 @@
       "6 9"
     ],
     "output_sample": [
-      "54",
-      "170"
+      "56",
+      "160"
     ],
     "point": "160",
     "short_name": "MAXCOST"
@@ -2216,7 +2216,7 @@
       "4"
     ],
     "output_sample": [
-      "3 5",
+      "4 6",
       "23"
     ],
     "point": "140",
@@ -2359,7 +2359,7 @@
       "200 1"
     ],
     "output_sample": [
-      "450",
+      "550",
       "1"
     ],
     "point": "150",
@@ -2392,7 +2392,7 @@
       "Thit 1 80000"
     ],
     "output_sample": [
-      "176000",
+      "191000",
       "Thit"
     ],
     "point": "170",
@@ -2456,7 +2456,7 @@
       "300"
     ],
     "output_sample": [
-      "210"
+      "200"
     ],
     "point": "130",
     "short_name": "THUNHAP"
@@ -2488,7 +2488,7 @@
       "15 35"
     ],
     "output_sample": [
-      "60",
+      "70",
       "20"
     ],
     "point": "210",
@@ -2602,7 +2602,7 @@
       "8 300"
     ],
     "output_sample": [
-      "8400",
+      "6900",
       "2"
     ],
     "point": "160",

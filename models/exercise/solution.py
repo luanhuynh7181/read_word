@@ -18,6 +18,10 @@ class Solution:
             lines.pop(0)
         self.solution_textes = remove_empty_items(self.solution_textes)
 
+    def set_solution(self, solution):
+        if not isinstance(solution["code_sample"], list) or len(solution["code_sample"]) == 0:
+            print_error(f"code_sample is not a list or empty in {self.title}")
+        self.code_sample = solution["code_sample"]
 
     def check_error(self):
         if len(self.solution_textes) == 0:

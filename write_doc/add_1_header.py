@@ -68,6 +68,6 @@ def add_data_table(table, exercises: List[Exercise], de_so: int):
     for i, exercise in enumerate(exercises):
         add_style_cell(table.cell(i + 1, 0), "Bài " + str(i + 1), style_1)
         add_style_cell(table.cell(i + 1, 1), exercise.title, style_2)
-        add_style_cell(table.cell(i + 1, 2), "Ex_" + str(de_so) + "_" + str(i + 1), style_3_4)
-        add_style_cell(table.cell(i + 1, 3), "0", style_3_4)
+        add_style_cell(table.cell(i + 1, 2), exercise.short_name, style_3_4)
+        add_style_cell(table.cell(i + 1, 3), str(exercise.point), style_3_4)
 
