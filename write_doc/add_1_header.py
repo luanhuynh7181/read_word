@@ -27,8 +27,11 @@ def add_header_de_so(doc: Document, de_so: int):  # type: ignore
         'font_size': 21,
         'rgb_color': RGBColor(192, 0, 0),
         'alignment': WD_PARAGRAPH_ALIGNMENT.CENTER,
-        'line_spacing': 30
+        'line_spacing': 30,
+         'space_before': 50,
     }
+    if de_so == 1:
+        style['space_before'] = 5
     add_style_paragraph(para, style)
 
 def add_title_table(table):
@@ -37,7 +40,7 @@ def add_title_table(table):
         'alignment': WD_PARAGRAPH_ALIGNMENT.CENTER,
         'bold': True,
         'vertical_alignment': WD_CELL_VERTICAL_ALIGNMENT.CENTER,
-        'space_before': 15,
+        'space_before': 5,
         'space_after': 15,
     }
 

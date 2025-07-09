@@ -9,6 +9,10 @@ from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT
 from pygments import lex
 from pygments.lexers import PythonLexer
 from pygments.token import Token
+from docx.oxml.ns import qn
+from docx.oxml.ns import qn
+from docx.oxml.ns import qn
+from docx.oxml import OxmlElement
 
 def write_solution_exercise(doc: Document, solutionExercise: List[Solution]): # type: ignore
     header = doc.add_heading(f"Hướng dẫn giải", level=2)
@@ -17,16 +21,17 @@ def write_solution_exercise(doc: Document, solutionExercise: List[Solution]): # 
             'alignment': WD_PARAGRAPH_ALIGNMENT.CENTER,
             'bold': True,
             'font_size': 20,
-            'line_spacing': 25
+            'line_spacing': 25,
+            'space_before': 25
         })
 
     for i, exercise in enumerate(solutionExercise, 0):
         header = doc.add_heading(f"Bài {i+1}: {exercise.title}", level=3)
         add_style_paragraph(header, {
-            'rgb_color': RGBColor(0, 111, 192),
+            'rgb_color': RGBColor(255, 0, 0),
             'alignment': WD_PARAGRAPH_ALIGNMENT.LEFT,
             'bold': True,
-            'space_before':20
+            'space_before': 15
         })
         
         phantich = doc.add_paragraph("1. Phân tích:")
@@ -34,7 +39,6 @@ def write_solution_exercise(doc: Document, solutionExercise: List[Solution]): # 
             'rgb_color': RGBColor(0, 111, 192),
             'alignment': WD_PARAGRAPH_ALIGNMENT.LEFT,
             'bold': True,
-            'space_before':15
         })
 
         write_list_section_number(doc, exercise.solution_textes, {
@@ -57,7 +61,7 @@ def create_code_table(doc: Document, code: List[str]): # type: ignore
 def write_code_table(code_lines: List[str], cell):
     paragraph = cell.paragraphs[0]
     code = "\n".join(code_lines)
-
+    set_cell_margin(cell, top=120, start=200, bottom=0, end=200)
     color_map = {
         Token.Keyword: RGBColor(0, 0, 255),               # Blue - for, def, import
         Token.Name.Function: RGBColor(0, 128, 0),         # Dark Green
@@ -82,3 +86,24 @@ def write_code_table(code_lines: List[str], cell):
         rgb = color_map.get(token_type, RGBColor(150, 75, 0))  # fallback màu đẹp
         run.font.color.rgb = rgb
         run.font.name = "Consolas"
+
+def set_cell_margin(cell, top=0, start=0, bottom=0, end=0):
+    """
+    Đặt margin cho ô bảng (đơn vị: Twips. 1 point = 20 twips)
+    """
+    tc = cell._tc
+    tcPr = tc.get_or_add_tcPr()
+    
+    cellMar = tcPr.find(qn('w:tcMar'))
+    if cellMar is None:
+        cellMar = OxmlElement('w:tcMar')
+        tcPr.append(cellMar)
+
+    for m in ('top', 'start', 'bottom', 'end'):
+        val = locals()[m]
+        node = cellMar.find(qn(f'w:{m}'))
+        if node is None:
+            node = OxmlElement(f'w:{m}')
+            cellMar.append(node)
+        node.set(qn('w:w'), str(val))
+        node.set(qn('w:type'), 'dxa')  # đơn vị đo là "twips"
